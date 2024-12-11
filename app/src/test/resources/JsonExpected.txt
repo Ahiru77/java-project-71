@@ -1,0 +1,17 @@
+[
+{"key":"chars1","state":"equal","value":["a","b","c"]},
+{"key":"chars2","state":"update","value":["d","e","f"],"valueNew":false},
+{"key":"checked","state":"update","value":false,"valueNew":true},
+{"key":"default","state":"update","value":null,"valueNew":["value1","value2"]},
+{"key":"id","state":"update","value":45,"valueNew":null},
+{"key":"key1","state":"delete","value":"value1"},
+{"key":"key2","state":"add","valueNew":"value2"},
+{"key":"numbers1","state":"equal","value":[1,2,3,4]},
+{"key":"numbers2","state":"update","value":[2,3,4,5],"valueNew":[22,33,44,55]},
+{"key":"numbers3","state":"delete","value":[3,4,5]},
+{"key":"numbers4","state":"add","valueNew":[4,5,6]},
+{"key":"obj1","state":"add","valueNew":{"isNested":true,"nestedKey":"value"}},
+{"key":"setting1","state":"update","value":"Some value","valueNew":"Another value"},
+{"key":"setting2","state":"update","value":200,"valueNew":300},
+{"key":"setting3","state":"update","value":true,"valueNew":"none"}
+]
