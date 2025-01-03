@@ -1,9 +1,5 @@
 package hexlet.code;
 
-import hexlet.code.parsers.ParseFactory;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.HashMap;
 import java.util.ArrayList;
 import java.util.List;
@@ -12,10 +8,9 @@ import java.util.Objects;
 import java.util.TreeMap;
 
 public class DiffFinder {
-    public static List<HashMap<String, Object>> findDiff(String path1, String path2) throws Exception {
+    public static List<HashMap<String, Object>> findDiff(Map<String, Object> map1,
+                                                         Map<String, Object> map2) throws Exception {
         var differs = new ArrayList<HashMap<String, Object>>();
-        var map1 = prepData(path1);
-        var map2 = prepData(path2);
         var keys = getKeys(map1, map2);
         for (String key : keys) {
             var map = new HashMap<String, Object>();
@@ -42,22 +37,6 @@ public class DiffFinder {
             differs.add(map);
         }
         return differs;
-    }
-
-    public static Map<String, Object> prepData(String path) throws Exception {
-        Path pathNorm = Paths.get(path).toAbsolutePath().normalize();
-        var data = Files.readString(pathNorm);
-        String extension = null;
-        if (path == null) {
-            throw new Exception("Path is empty");
-        }
-        int dotIndex = path.lastIndexOf(".");
-        if (dotIndex >= 0) {
-            extension = path.substring(dotIndex + 1);
-        } else {
-            throw new Exception("File extension is unidentified.");
-        }
-        return ParseFactory.pick(extension).parse(data);
     }
 
     public static ArrayList<String> getKeys(Map<String, Object> map1, Map<String, Object> map2) {
