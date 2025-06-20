@@ -1,14 +1,12 @@
 package hexlet.code.formatters;
-
 import java.util.HashMap;
-import java.util.List;
+import java.util.ArrayList;
 
 public class Stylish implements Format {
-    public final String format(List<HashMap<String, Object>> diffMap) {
+    public final String format(ArrayList<HashMap<String, Object>> diffMap) {
         final String format = "\n  %s %s: %s";
         String result = "";
-        for (int i = 0; i < diffMap.size(); i++) {
-            var item = diffMap.get(i);
+        for (var item : diffMap) {
             var key = item.get("key");
             String status = String.valueOf(item.get("status"));
             var val1 = item.get("value");

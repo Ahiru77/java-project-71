@@ -19,16 +19,16 @@ public class Differ {
     public static Map<String, Object> prepData(String path) throws Exception {
         Path pathNorm = Paths.get(path).toAbsolutePath().normalize();
         var data = Files.readString(pathNorm);
-        String extension = null;
+        String dataExt = null;
         if (path == null) {
             throw new Exception("Path is empty");
         }
         int dotIndex = path.lastIndexOf(".");
         if (dotIndex >= 0) {
-            extension = path.substring(dotIndex + 1);
+            dataExt = path.substring(dotIndex + 1);
         } else {
             throw new Exception("File extension is unidentified.");
         }
-        return Parser.parse(data, extension);
+        return Parser.parse(data, dataExt);
     }
 }

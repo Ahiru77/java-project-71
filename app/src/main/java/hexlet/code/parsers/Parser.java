@@ -8,12 +8,12 @@ import java.io.IOException;
 import java.util.Map;
 
 public class Parser {
-    public static Map<String, Object> parse(String file, String extension) throws IOException {
-        return switch (extension) {
-            case "json" -> parseJson(file);
-            case "yml" -> parseYml(file);
-            case "yaml" -> parseYml(file);
-            default -> parseJson(file);
+    public static Map<String, Object> parse(String obj, String objForm) throws IOException {
+        return switch (objForm) {
+            case "json" -> parseJson(obj);
+            case "yml" -> parseYml(obj);
+            case "yaml" -> parseYml(obj);
+            default -> throw new RuntimeException("Unknown format: " + objForm);
         };
     }
     public static Map<String, Object> parseYml(String data) throws IOException {

@@ -2,13 +2,12 @@ package hexlet.code;
 
 import java.util.HashMap;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
 import java.util.Objects;
 import java.util.TreeMap;
 
 public class DiffFinder {
-    public static List<HashMap<String, Object>> findDiff(Map<String, Object> map1,
+    public static ArrayList<HashMap<String, Object>> findDiff(Map<String, Object> map1,
                                                          Map<String, Object> map2) throws Exception {
         var differs = new ArrayList<HashMap<String, Object>>();
         var keys = getKeys(map1, map2);

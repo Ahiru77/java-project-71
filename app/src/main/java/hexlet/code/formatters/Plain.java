@@ -1,16 +1,15 @@
 package hexlet.code.formatters;
+import java.util.ArrayList;
 import java.util.HashMap;
-import java.util.List;
 import org.apache.commons.lang3.ClassUtils;
 
 public class Plain implements Format {
-    public final String format(List<HashMap<String, Object>> diff) {
+    public final String format(ArrayList<HashMap<String, Object>> diffMap) {
         final String add = "\nProperty '%s' was added with value: %s";
         final String del = "\nProperty '%s' was removed";
         final String mod = "\nProperty '%s' was updated. From %s to %s";
         String result = "";
-        for (int i = 0; i < diff.size(); i++) {
-            var item = diff.get(i);
+        for (var item : diffMap) {
             var key = item.get("key");
             var status = String.valueOf(item.get("status"));
             var val1 = defType(item.get("value"));
